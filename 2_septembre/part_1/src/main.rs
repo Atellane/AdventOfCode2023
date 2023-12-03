@@ -10,6 +10,14 @@ fn main() -> io::Result<()> {
     // Open the file in read mode
     let file: File = File::open(&path)?;
 
+    let sum_of_game_ids: u32 = part_1(file);
+
+    println!("The sum of game ids that matched our criteria is {sum_of_game_ids}.");
+
+    Ok(())
+}
+
+fn part_1(file: File) -> u32 {
     // Create a buffer reader to read the file line by line
     let reader: BufReader<File> = io::BufReader::new(file);
 
@@ -77,7 +85,5 @@ fn main() -> io::Result<()> {
         }
     }
 
-    println!("The sum of game ids that matched our criteria is {sum_of_game_ids}.");
-
-    Ok(())
+    return sum_of_game_ids;
 }
